@@ -30,3 +30,36 @@ header {
 .logo_image {
     height: 200px;
 }
+
+/*Navigation stylings*/
+
+.nav {
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+form {
+    width: 50%;
+}
+
+input[type=text] {
+    padding: 10px;
+    border: 1px #000000 solid;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+    width: 50%;
+}
+
+input[type=submit] {
+    background-color: #dfbd69;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    cursor: pointer;
+}
