@@ -11,6 +11,7 @@ const searchTerm = document.querySelector('#searchTerm')
 const searchBtn = document.querySelector('#searchBtn')
 const modalBtn = document.querySelector('.modalBtn')
 const catModal = document.querySelector('#catModal')
+
 const catDetails = {}
 
 //functions and methods
@@ -48,4 +49,25 @@ const renderCategories = () => {
             catContainer.append(catType)
         })
     })
+}
+
+//If user is interested in finding out information about a particular category, they can click on the category info button
+
+const catInfo = (category) => {
+
+    const catModal = document.querySelector('#catModal')
+                    
+    if(`${catDetails[category].strCategory} === ${catDetails[category].strCategoryDescription}.split("")[0]`) {
+        catModal.innerHTML = `<p>${catDetails[category].strCategoryDescription}</p>
+        <span id='modal_close' class='modalClose'>[close]</span>`
+
+        if (catModal.class !== 'hidden') {
+            catModal.classList.replace('hidden', 'active')
+
+            const closeBtn = document.querySelector('#modal_close')
+            closeBtn.addEventListener('click', () => {
+                catModal.classList.replace('active', 'hidden')
+            })
+        } 
+    }
 }
