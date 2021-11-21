@@ -227,3 +227,14 @@ const filterCat = (e) => {
 
     searchTerm.value = ""
 }
+
+//toggles between an empty heart and full heart when a user clicks to 'like'
+const like = (e) => {
+    if(e.target.className === 'empty') {
+        e.target.innerHTML = fullHeart
+        e.target.classList.replace('empty', 'full')
+    } else {
+        e.target.innerHTML = emptyHeart
+        e.target.classList.replace('full', 'empty')
+    }
+}
