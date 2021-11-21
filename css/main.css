@@ -63,3 +63,22 @@ input[type=submit] {
     font-weight: bolder;
     cursor: pointer;
 }
+
+/*Cards stylings*/
+
+.categories {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.catType_Card {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 3px;
+    margin: 5px;
+    border: 1px solid #ffffff;
+    border-radius: 20px;    
+}
+
