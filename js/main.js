@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     renderCategories()
     getRecipeBtn.addEventListener('click', randomRecipe)
+    searchBtn.addEventListener('click', filterCat)
 })
 
 //variables
@@ -178,4 +179,51 @@ const renderRecipe = (recipe) => {
             </div>
             <div>${recipe.strSource ? `<p><b>Image source courtesy of: </b>${recipe.strSource}</p>` : ""}</div>
     `
+}
+
+//function to close recipe
+
+const closeRecipe = () => recipeContainer.innerHTML = ""
+
+//User can filter recipes by searching category
+
+const filterCat = (e) => {
+
+    e.preventDefault()
+
+    recipeContainer.innerHTML = ""
+
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${searchTerm.value.toLowerCase()}`)
+    .then(resp => resp.json())
+    .then(data => {
+        if (data.meals) {
+            catContainer.innerHTML = ""
+            data.meals.forEach((meal) => {
+
+                const recipe = document.createElement('div')
+    
+                recipe.className = "recipe_Card"
+
+                recipe.id = `${meal.idMeal}`
+    
+                recipe.innerHTML = `<img src='${meal.strMealThumb}' alt='${meal.strMeal}'/>
+                <div class='recipe_menu'>
+                <h2 class='recipe_title'>${meal.strMeal}</h2>
+                <button id='recipeBtn' class='recipe_button' onclick='recipeDetails("${meal.idMeal}")'>Recipe details</button>
+                </div>
+                `
+    
+                catContainer.append(recipe)
+            })
+        } else {
+            catContainer.innerHTML = ""
+            const message = document.createElement('p')
+            message.innerText = 'Sorry, we couldn\'t find what you were looking for.'
+
+            catContainer.append(message)
+        }
+    })
+    .catch(error => console.log(error.message))
+
+    searchTerm.value = ""
 }
