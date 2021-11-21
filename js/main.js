@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     renderCategories()
+    getRecipeBtn.addEventListener('click', randomRecipe)
 })
 
 //variables
@@ -11,7 +12,8 @@ const searchTerm = document.querySelector('#searchTerm')
 const searchBtn = document.querySelector('#searchBtn')
 const modalBtn = document.querySelector('.modalBtn')
 const catModal = document.querySelector('#catModal')
-
+const fullHeart = "&#10084"
+const emptyHeart = "&#9825"
 const catDetails = {}
 
 //functions and methods
@@ -101,4 +103,26 @@ const clickCat = (category) => {
         })
     })
     .catch(error => error)
+}
+
+//User clicks on buttons and the recipe renders at the top of the page
+
+const recipeDetails = (recipe) => {
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipe}`)
+    .then(resp => resp.json())
+    .then(data => {
+        renderRecipe(data.meals[0])
+    })
+    .catch(error => console.log(error))
+    window.scrollTo(0,0)
+}
+
+const randomRecipe = () => {
+    fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+    .then(resp => resp.json())
+    .then(data => {
+        renderRecipe(data.meals[0])
+    })
+    .catch(error => console.log(error.message))
+    window.scrollTo(0,0)
 }
