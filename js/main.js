@@ -126,3 +126,56 @@ const randomRecipe = () => {
     .catch(error => console.log(error.message))
     window.scrollTo(0,0)
 }
+
+const renderRecipe = (recipe) => {
+    const ingredients = []
+
+    for(let i = 1; i <= 20; i++) {
+        const ingredientMeasures = `${recipe[`strIngredient${i}`]} : ${recipe[`strMeasure${i}`]}`
+
+        if (recipe[`strIngredient${i}`]) {
+            ingredients.push(ingredientMeasures)
+        } else {
+            break
+        } 
+    }
+
+    recipeContainer.innerHTML = 
+         `<div class='recipe_Display'>
+            <div class='recipe_display_menu'>
+            <div>
+            <h1>Recipe</h1>
+            <p>Here is your recipe! Enjoy cooking ...</p>
+            </div>
+            <button id="closeRecipe" class='recipe_details_button' onClick='closeRecipe()'>Close Recipe</button>
+            </div>
+            <div class='recipe_details_title'>
+                <div>${recipe.strCategory ? `<b>Category: </b>${recipe.strCategory}` : ""}</div> 
+                <div>${recipe.strArea ? `<b>Area: </b>${recipe.strArea}` : ""}</div>
+                <div>${recipe.strTags ? `<b>Tags: </b>${recipe.strTags.split(',').join(', ')}` : ""}</div>
+            </div>
+            <div class='recipe_details_container'>
+                <div class='recipe_details_image_video'>
+                    <div class='recipe_details_image'>
+                        <img src='${recipe.strMealThumb}' class='recipe_image' alt='${recipe.strMeal}'/>
+                    </div>
+                    <div>
+                        <iframe src="https://www.youtube.com/embed/${recipe.strYoutube.slice(-11)}" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class='recipe_details_instructions'>
+                    <div class='recipe_details_ingredients'>
+                        <h3>Ingredients</h3>
+                        <ul>
+                            ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class='recipe_details_preparation'>
+                        <h4>${recipe.strMeal}</h4>
+                        <p>${recipe.strInstructions}</p>
+                    </div>
+                </div>
+            </div>
+            <div>${recipe.strSource ? `<p><b>Image source courtesy of: </b>${recipe.strSource}</p>` : ""}</div>
+    `
+}
