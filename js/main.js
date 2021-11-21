@@ -71,3 +71,34 @@ const catInfo = (category) => {
         } 
     }
 }
+
+//On clicking the categories, we create cards for each recipe within the category.
+
+const clickCat = (category) => {
+
+    catContainer.innerHTML = ''
+
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`)
+    .then(resp => resp.json())
+    .then(data => {
+        data.meals.forEach((meal) => {
+            const recipe = document.createElement('div')
+
+            recipe.className = 'recipe_Card'
+
+            recipe.id = `${meal.strMeal}`
+
+            recipe.innerHTML = 
+                `<img src='${meal.strMealThumb}' class='recipe_image' alt='${meal.strMeal}'/>
+                <span id='Heart_${meal.idMeal}' class='empty' onclick='like(event)'>${emptyHeart}</span>
+                <div class='recipe_menu'>
+                <h2 class='recipe_title'>${meal.strMeal}</h2>
+                <button id='recipeBtn' class='recipe_button' onclick='recipeDetails("${meal.idMeal}")'>Recipe details</button>
+                </div>
+                `
+            
+            catContainer.append(recipe)
+        })
+    })
+    .catch(error => error)
+}
