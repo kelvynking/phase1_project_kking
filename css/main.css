@@ -118,4 +118,53 @@ button {
     color: #926f34;
 }
 
+.hidden {
+    display: none;
+}
+
+.recipe_Display{
+    border: 1px #926f34 solid;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.recipeContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.recipe_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.recipe_Card {
+    width: 30%;
+    margin: 5px;
+    border: 1px #ffffff solid;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe_image {
+    border-radius: 20px 20px 0px 0px;
+}
+
+.recipe_title {
+    color: #926f34;
+    font-size: 1.2rem;
+    padding: 3px;
+    text-align: center;
+}
+
+.recipe_button {
+    width: 100%;
+    margin-bottom: 0px;
+    border-radius: 20px;
+}
+
 
