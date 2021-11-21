@@ -82,3 +82,16 @@ input[type=submit] {
     border-radius: 20px;    
 }
 
+button {
+    width: 40%;
+    height: 50px;
+    background-color: #926f34;
+    color: #ffffff;
+    padding: 3px;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
