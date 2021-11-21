@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible" content="IE=edge'>
+        <title>Make me a meal!</title>  
+        <meta name='description' content=''>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type ='text/css' href='./css/main.css'> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div>
+                <img src='./img/mmam.gif' class='logo_image' alt='MMAM Logo' id='logo'>
+            </div>
+            <div>
+                Navigation: <a href='./index.html'>Home</a>
+            </div>
+        </header>
+        <nav class='nav'>
+            <form>
+                <label>Help me find recipes by category:</label>
+                <input type='text' id='searchTerm' name='searchTerm' placeholder='type category'>
+                <input type='submit' id='searchBtn' value='Submit'>
+            </form>
+            <button id='getRecipe'>I feel adventurous!</button>
+        </nav>    
+        <main>
+            <section id='recipeContainer'></section>
+            <h1>Categories</h1>
+            <p>Please select a category to see meal suggestions</p>
+            <section id='catContainer' class="categories">
+            </section>
+            
+        </main>
+        <script src='./js/main.js'></script>
+    </body>
+
+    <footer class='footer'>
+        <p>&copy; Make Me A Meal 2021</p>
+    </footer>
+
+    <div id='catModal' class='modal hidden'>
+    </div>
+
+    <div id='recipeModal' class='modal hidden'>    
+    </div>
+</html>
