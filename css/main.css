@@ -18,3 +18,15 @@ a {
 img {
     width: 100%;
 }
+
+/*Header stylings*/
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo_image {
+    height: 200px;
+}
