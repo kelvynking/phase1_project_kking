@@ -95,3 +95,27 @@ button {
     cursor: pointer;
 }
 
+#closeRecipe {
+    background-color: #dfbd69;
+}
+
+.cat_image {
+    cursor: pointer;
+}
+
+.cat_menu {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cat_title {
+    margin-left: 10px;
+    color: #926f34;
+}
+
+
